@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Sign-Up <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="adminlogin.html">Admin-Log-in <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="userlogin.html">User-Log-in<span class="sr-only">(current)</span></a>
+        </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="alert alert-success">
+            <h1>User-Log-In</h1>
+          </div>
+          <form action="" name="userfrm" onsubmit="userLogin(event)">
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text" class="form-control" name="userName">
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" name="userEmail">
+            </div>
+            <div class="form-group">
+              <label for="">Password</label>
+              <input type="password" class="form-control" name="userPswd">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary">LogIn</button>
+            </div>
+          </form>
+      </div>
+      
+
+      <script>
+             function userLogin(eds) {
+                  eds.preventDefault();
+                  var uName = userfrm.userName.value;
+                  var uEmail = userfrm.userEmail.value;
+                  var uPswd = userfrm.userPswd.value;
+                  var localStruserData = localStorage.getItem("signUp");
+                  if (localStruserData != null) {
+                    userData = JSON.parse(localStruserData);
+                  } else {
+                    userData = [];
+                  }
+                  // console.log(adminData);
+                  var newuserData = userData.filter((item,index)=>{
+                    return item.userFn == uName && item.userEmail == uEmail && item.userPswd == uPswd && item.userStatus==1;
+                  })
+                  // console.log(newuserData)
+                  localStorage.setItem("sigleUser",JSON.stringify(newuserData));
+                  if (newuserData.length > 0) {
+                    window.location = "userdashboard.html";
+                  } else {
+                    alert("Invalid User");
+                  }
+
+             }
+      </script>
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  </body>
+</html>

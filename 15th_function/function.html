@@ -1,0 +1,70 @@
+
+/*
+function :  is a self content block of code which perform a particular task. 
+
+=> Predefined function(library function) : it provided by js 
+
+=> User Defned function: its defined by user. 
+    => function declaration 
+        => Default function  : A function take no parameter 
+        => Parameterised Fucntion : A function take at least one parameter
+    => calling of fuunction 
+
+*/
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>function</title>
+</head>
+<body>
+
+	<!-- <button onclick="hellWorld()">click</button> -->
+
+</body>
+<footer>
+	<script type="text/javascript">
+
+	// 1. By calling
+	// function hellWorld(){
+	// 	console.log("Hello world !");
+	// }
+	// hellWorld();
+
+    // 2. By onclick
+	// function hellWorld(){
+	// 	document.write("Hello world !");
+	// }
+
+    // 3. By parameter
+	// function hellWorld(a,b){
+	// 	document.write(a-b);
+	// }
+	// hellWorld(30,20);
+     
+    // 4. By parameter
+    var x = parseInt(prompt("Enter 1st number"));
+    var y = parseInt(prompt("Enter 2nd number"));
+	function hellWorld(a,b){
+		document.write(a-b);//a-b
+	}
+	hellWorld(x,y);
+
+	// 5. By return statement
+	var x = parseInt(prompt("Enter 1st number"));
+	var y = parseInt(prompt("Enter 2nd number"));
+	function helloWorld(a,b){
+		return a+b;
+	}
+	document.write(helloWorld(x,y));
+	// Output:-a+b
+
+
+	
+
+</script>
+</footer>
+</html>

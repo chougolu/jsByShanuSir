@@ -1,0 +1,76 @@
+<!-- 
+    Ajax : Asynchronous Javascript and XML 
+
+    XML :Extended Markup language (Data Transfer)
+    
+    Client -------------  Ajax ------------- Server 
+
+   Request :  XMl + Http 
+    Response : XMl + Http 
+    XMLHttpRequest(Ajax)
+    let obj = new XMLHttpRequest() 
+    5 Property 
+    3 (Response Handle)non
+    2 (Request Send) 
+
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <button onclick="ajaxFun()">CLick</button>
+    <div id="data" style="width: 400px; height: 400px; border:2px solid"></div>
+
+    <script>
+        // function ajaxFun(){
+        //     let obj = new XMLHttpRequest(); 
+        //      // request end 
+            
+        //     // ajax response handle  
+        //     obj.onreadystatechange = function(){
+        //         // data send from server  
+        //         if(obj.readyState == 4){
+        //         document.getElementById("data").innerHTML = obj.responseText;
+        //         }
+        //     }
+        //     obj.open("GET", "img.html", true);
+        //     obj.send();
+
+           
+        // }
+        // *
+        // **
+        // ***
+        // ****
+        // *****
+        for(let row = 1; row<=5; row++){
+            for(let col = 1; col<=row; col++){
+                document.write(col)
+            }
+            document.write('</br>')
+        }
+        // *****
+        // ****
+        // ***
+        // **
+        // *
+        for(let row = 1; row<=5; row++){
+            for(let col = row; col<=5; col++){
+                document.write('*')
+            }
+            document.write('</br>')
+        }
+        var arr = [1,2,3,4,5]
+        for(let x = arr.length; x<=0; x++){
+            console.log(x)
+        }
+    </script>
+ </body>
+ </html>

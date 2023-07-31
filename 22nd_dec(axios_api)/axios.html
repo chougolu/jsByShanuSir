@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios</title>
+</head>
+<body>
+    <!-- Automatic transforms for JSON data -->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function getApiData(){
+            
+            const url = `https://dummyjson.com/users`;
+            let userData = axios.get(url).then((res)=>{
+                return res.data.users;
+            }).catch((error)=>{
+                //console.log(error);
+                return error;
+            }) ;
+            return userData;
+
+        }
+        let apiData = getApiData(); // pedning : undefined // success(fullfilled)
+        
+        console.log(apiData);
+        apiData.then((res)=>{
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err);
+        })
+
+    </script>
+</body>
+</html>
+
+nav{
+    @media(){
+        
+    }
+
+    ul {
+        li{
+            a{
+
+            }
+        }
+    }
+}
+
+li{
+
+}
+a{
+
+}
+
+

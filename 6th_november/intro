@@ -1,0 +1,56 @@
+Javascript : Javascript is a client side programming language 
+
+=> Javascript is used for to perform a client side operation(validation, calculator, games, datepicker, ..... )
+
+
+-------------------------------------------------------
+2009 : Ryan Dehl (Nodejs(Backend)) : Its a server side framework 
+
+vlc.exe 
+
+c++ + js + googlev8 = node.exe
+nodejs
+------------------------------------------------------
+=> JavaScript is an object-based scripting language which is lightweight and cross-platform.
+
+=> Javascript is a interpreted programming language 
+
+Javascript Features : 
+
+1. It is a light-weighted and interpreted language.
+2. Javascript support c syntax 
+3. Javascript support object oriented programming (c++)
+4. It is a case-sensitive language.
+5. Javascript is a plateform independent language(it support or every os(windows, linux, mac,..)) 
+
+
+1
+2  error  hold
+3
+4
+5 error 
+6
+
+----------------------
+compiler
+2, 5 error 
+interpreter  : it execute our code line by line 
+it hold the execution of our program when genrate a error  
+
+Babel : 
+
+
+-----------------------------------------------------------
+
+Application of JS : 
+
+Web Development:
+Web Application : 
+Games Application
+ML  : ml5.js 
+Server Side Application:
+Smartwatches 
+Art:
+Mobile Application : using react native 
+
+----------------------------------------------------

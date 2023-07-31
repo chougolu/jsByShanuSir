@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../22nd_dec(axios_api)"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "21th_dec(API_&_fetch)"
+	}
+}

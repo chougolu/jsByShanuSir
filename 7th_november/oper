@@ -1,0 +1,44 @@
+Javascript Operators : It operate the value(any type) between operands(variable) 
+a+b 
+
+Arithmatic Operators : 
++ - * / %  
+
+Relational Operators : 
+< less than
+> greater than
+<= less than equal
+>= greater than equal
+== equal to 
+!= not equal to 
+
+=== 
+
+Logical Operators : 
+&& and
+||  or 
+!   not 
+
+Ternary Operator : (for check the single line condition) 
+(condition) ? statement1 : statement2 
+
+Assignment Operator : 
+
+L = R 
++=
+-=
+*=
+/=
+%=   
+
+var = expression 
+
+Increment / Decrement 
+++ 
+-- 
+
+------------------------------------------------------
+
+
+
+

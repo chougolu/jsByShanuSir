@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Sign-Up <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="adminlogin.html">Admin-Log-in<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="userlogin.html">User-Log-in<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="alert alert-success">
+            <h1>Sign-Up</h1>
+        </div>
+        <form name="frm" action="" onsubmit="signUp(event)">
+            <div class="row">
+                <div class="col">
+                    <label for="">User Id</label>
+                    <input class="form-control" type="number" id="userId" name="userId">
+                </div>
+                <div class="col">
+                    <label for="">First Name</label>
+                    <input class="form-control" type="text" id="firstName" name="firstName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Last Name</label>
+                    <input class="form-control" type="text" id="lastName" name="lastName">
+                </div>
+                <div class="col">
+                    <label for="">Email</label>
+                    <input class="form-control" type="email" id="email" name="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Contact</label>
+                    <input class="form-control" type="number" id="contactNumber" name="contactNumber">
+                </div>
+                <div class="col">
+                    <label for="">password</label>
+                    <input class="form-control" type="password" id="password" name="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col mt-4">
+                    <button class="btn btn-primary">Sign-Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script>
+        // var Arr = [];
+        function signUp(params) {
+            var localData = localStorage.getItem("signUp");
+            if (localData != null) {
+                Arr = JSON.parse(localData);
+            } else {
+                Arr = [];
+            }
+            params.preventDefault();
+            // console.log("hello")
+            var uId = frm.userId.value;
+            var fName = frm.firstName.value;
+            var lName = frm.lastName.value;
+            var uEmail = frm.email.value;
+            var cNumber = frm.contactNumber.value;
+            var Pswd = frm.password.value;
+            // console.log(uId)
+            var newArr = Arr.filter((item,index)=>{
+                return uEmail==item.userEmail || cNumber==item.userCnumber || Pswd==item.userPswd;
+            })
+            if (newArr.length>0) {
+                alert("Email, contact and password should be unique");
+            } else {
+                Arr.push({
+                "userId": uId,
+                "userFn": fName,
+                "userLn": lName,
+                "userEmail": uEmail,
+                "userCnumber": cNumber,
+                "userPswd": Pswd,
+                "userStatus": 0
+            });
+            // console.log(Arr);
+            localStorage.setItem("signUp", JSON.stringify(Arr));
+            frm.reset(); 
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

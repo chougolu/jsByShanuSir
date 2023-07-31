@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Navigation bar. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Kwitter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="index.html">All Post <span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="add.html">New Post</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Crud</title>
+</head>
+
+<body>
+    <div class="container pt-4 m-auto">
+        <div class="card col-5 mr-2 mb-2 text-center m-auto" style="width: 18rem;" id="show_view">
+
+        </div>
+    </div>
+    </div>
+    <script>
+        function showPost() {
+            var singleData = localStorage.getItem("view");
+            // console.log(singleData);
+            var allData = localStorage.getItem("kwi_pro");
+            // console.log(allData);
+            if (allData != null) {
+                showArr = JSON.parse(allData);
+            } else {
+                showArr = [];
+            }
+            // console.log(showArr);
+            var newshowArr = showArr.filter((item, index) => {
+                return singleData == index;
+            })
+            // console.log(newshowArr);
+            localStorage.setItem("SINGLE_RECORD", JSON.stringify(newshowArr));
+            str = "";
+            newshowArr.forEach((item, index) => {
+                str += `
+                <div class="card-body">
+                  <h5 class="card-title" >${item.title}</h5>
+                  <p class="card-text">${item.desc}</p>
+                  <a class="btn btn-light alert-primary" onclick="editData(${index})" >Edit</a>
+                </div>`
+            })
+            document.getElementById("show_view").innerHTML = str;
+        }
+        showPost();
+
+
+        function editData(edit_id) {
+            localStorage.setItem("editId", edit_id);
+            window.location = "edit.html"
+            console.log(edit_id)
+
+
+        }
+
+
+    </script>
+</body>
+
+</html>

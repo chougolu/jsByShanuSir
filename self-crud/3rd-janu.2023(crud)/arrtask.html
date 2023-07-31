@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>task</title>
+</head>
+<body>
+
+	Monthly Salary : <input type="number" id="mSalary" name=""><br>
+	Annual Salary : <input type="number" id="aSalary" name=""><br>
+	Total (monthly+annual) : <input type="number" id="tSalary" name=""><br>
+	In Hand Ammount (-18% GST in annual) : <input type="number" id="inHandAmmount" name=""><br>
+	Donation (in hand annount - 20%) : <input type="number" id="donate" name=""><br>
+	Expenditure (in hand annount - 30%) : <input type="number" id="expend" name=""><br>
+	Saving (in hand annount - 50%) : <input type="number" id="save" name=""><br>
+	<button onclick="calculateTotal()">On Click</button>
+
+	<script type="text/javascript">
+		function calculateTotal(){
+          var ms = document.getElementById("mSalary").value;
+          var as = document.getElementById("aSalary").value=ms*12;
+          var total = document.getElementById("tSalary").value=parseInt(ms)+parseInt(as);
+          var inHand = document.getElementById("inHandAmmount").value=as-(as*18)/100;
+          var donate = document.getElementById("donate").value=(inHand*20)/100;
+          var exp = document.getElementById("expend").value=(inHand*30)/100;
+          var save = document.getElementById("save").value=(inHand*50)/100;
+		}
+	</script>
+
+	(annual*72)/100
+	annual-(annual*18)/100
+	
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Navigation bar. -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Kwitter</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="index.html">All Post <span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="add.html">New Post</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <title>Crud</title>
+    </head>
+    <body>
+        <div class="container col-6 cont p-3">
+            <!-- Bootstrap Form  -->
+            <div class="card-header">
+                <h3 class="text-center">Update Record</h3>
+            </div>
+            <form name="frm" class="p-4" onsubmit="updateShowData(event) ">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" name="add_title" class="form-control" id="ad_title" aria-describedby="emailHelp">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Description</label>
+                    <textarea type="text" name="add_desc" class="form-control" id="ad_desc"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    
+        <script>
+
+        function showDataInput() {
+            var showInput = localStorage.getItem("SINGLE_RECORD");
+
+           if (showInput != null) {
+            newshowInput = JSON.parse(showInput);
+           }else{
+            newshowInput = [];
+           }
+           console.log(newshowInput)
+
+            document.getElementById("ad_title").value = newshowInput[0].title;
+            document.getElementById("ad_desc").value = newshowInput[0].desc;
+        }
+        showDataInput()
+
+        function updateShowData(event) {
+            event.preventDefault();
+            var uTitle = frm.add_title.value;
+            var uDesc = frm.add_desc.value;
+            console.log(uTitle,uDesc);
+            
+
+            //single record
+            var id = localStorage.getItem("view");
+            // console.log(id);
+            var getAllData = localStorage.getItem("kwi_pro");
+
+           if (getAllData != null) {
+            alldata = JSON.parse(getAllData);
+           }else{
+            alldata = [];
+           }
+           // console.log(alldata)
+            alldata[id].title = uTitle;
+            alldata[id].desc = uDesc;
+             // console.log(alldata);
+            localStorage.setItem("kwi_pro", JSON.stringify(alldata));
+            // showPost();
+            window.location = "view_post.html";
+        }
+            
+        </script>
+    </body>
+    </html>

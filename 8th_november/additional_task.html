@@ -1,0 +1,20 @@
+<script type="text/javascript">
+	
+    // Additional task-
+    // 1. if user age is 18 or grater than 18 so you can vote.
+    // 2. if user age is less than 18 and 60 so you can not vote.
+
+    let age = parseInt(prompt("Enter your age..."));
+
+    if (age>=18 && age<=60 ) {
+    	document.write("You can vote..");
+    }else if(age>=61 && age<=150 ){
+    	document.write("You can't vote because you have passed the voting age.");
+    } else if(age<18 && age==1){
+    	document.write("You can't vote.");
+    } else{
+    	document.write("Invalid age.");
+    }
+
+
+</script>

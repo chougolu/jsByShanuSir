@@ -1,0 +1,21 @@
+<script>
+    
+    /*
+        filter : it create a new array with a specific results from calling a function
+
+        => The filter() method does not execute the function for empty elements.
+
+        => The filter() method does not change the original array.
+
+
+        let newArr = Array.filter(function(){
+            return data;
+        })
+
+        => 
+    */
+
+    let arr = [20,51,2,41,90,30,11,15,60];  
+    let newArr = arr.filter((ele, index)=>{  return(ele >= 18)  });
+    console.log(newArr);
+</script>

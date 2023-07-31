@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="dashboard.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="add.html">Add Data <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="dashboard.html">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="adminLogIn.html">Admin LogIn <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="alert alert-danger">
+            <h1 class="text-center">Admin Dashboard</h1>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Student Id</th>
+                    <th scope="col">Student Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="showData">
+            </tbody>
+        </table>
+        <!-- Model box -->
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="frm" onsubmit="updateData(event)">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Student Id</label>
+                                <input type="number" name="stName" class="form-control" id="sId"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Name</label>
+                                <input type="text" name="stName" class="form-control" id="sName"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="stEmail" id="sEmail" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="text" name="stPswd" id="sPswd" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+
+    <!-- Get Student Data -->
+    <script>
+        function getData() {
+            var localData = localStorage.getItem("stdntData");
+            if (localData != null) {
+                lArr = JSON.parse(localData);
+            } else {
+                lArr = [];
+            }
+            //  console.log(lArr)
+            var str = "";
+            lArr.map((item, index) => {
+                str += `<tr>
+                           <td>${item.stuId}</td>
+                           <td>${item.stuName}</td>
+                           <td>${item.stuEmail}</td>
+                           <td>${item.stuPswd}</td>
+                           <td>
+                             <button class="btn btn-danger" onclick="deleteUser(${index})">Delete</button>&nbsp;
+                             <button class="btn btn-success" data-toggle="modal" data-target="#showModal" onclick="editUser(${index})">Edit</button>
+                           </td>
+                       </tr>`
+            })
+            document.getElementById("showData").innerHTML = str;
+        }
+        getData()
+
+        // Delete Student Data
+        function deleteUser(delId) {
+            // console.log(delId);
+            var localdelData = localStorage.getItem("stdntData");
+            if (localdelData != null) {
+                ldelArr = JSON.parse(localdelData);
+            } else {
+                ldelArr = [];
+            }
+            //  console.log(ldelArr);
+            var newdelId = ldelArr.filter((item, index) => {
+                return index != delId
+            })
+            // console.log(newdelId);
+            localStorage.setItem("stdntData", JSON.stringify(newdelId));
+            window.location = "dashboard.html";
+        }
+        var gbVar =[];
+        // Edit Student Data
+        function editUser(editId) {
+            gbVar=editId
+            // console.log(gbVar)
+            // console.log(editId);
+            var localedit = localStorage.getItem("stdntData");
+            if (localedit != null) {
+                edArr = JSON.parse(localedit);
+            } else {
+                edArr = [];
+            }
+            var newedArr = edArr.filter((item, index) => {
+                return index === editId;
+            });
+            // console.log(newedArr);
+            document.getElementById("sId").value = newedArr[0].stuId;
+           document.getElementById("sName").value = newedArr[0].stuName;
+           document.getElementById("sEmail").value = newedArr[0].stuEmail;
+           document.getElementById("sPswd").value = newedArr[0].stuPswd;
+           
+        }
+
+        // Update Student Data
+
+        function updateData(event) {
+            event.preventDefault();
+            // console.log("update");
+            var upId = document.getElementById("sId").value;
+            var upName = document.getElementById("sName").value;
+            var upEmail = document.getElementById("sEmail").value;
+            var upPswd = document.getElementById("sPswd").value;
+
+            // console.log(upName,upEmail,upPswd);
+            // console.log(gbVar);
+            var localupData = localStorage.getItem("stdntData");
+            if (localupData != null) {
+                ldupArr = JSON.parse(localupData);
+            } else {
+                ldupArr = [];
+            }
+            ldupArr[gbVar].stuId=upId;
+            ldupArr[gbVar].stuName=upName;
+            ldupArr[gbVar].stuEmail=upEmail;
+            ldupArr[gbVar].stuPswd=upPswd;
+
+            localStorage.setItem("stdntData",JSON.stringify(ldupArr));
+            window.location="dashboard.html";
+            
+            
+
+
+        }
+    </script>
+</footer>
+
+</html>

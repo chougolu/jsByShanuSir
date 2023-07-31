@@ -1,0 +1,20 @@
+/*
+        Javascript : client side / server side
+        // UI : React js / Angular / Vue.js / Node Js(2009) / App(native app) 
+        javascript Synchronous / Asynchronous Programming 
+    */
+
+    let a = 10;
+    let b = 20;
+    console.log(a,b) // 10 20
+    setTimeout(()=>{
+        for(let i=1;i<=100;i++)
+    {
+        console.log(i);
+    }
+    }, 3000);
+    
+    // 1---100
+    console.log("Testing"); //
+
+    

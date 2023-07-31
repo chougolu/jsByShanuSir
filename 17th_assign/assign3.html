@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Select User :
+    <select name="mane" id="name">
+        <option value="" hidden="">Select </option>
+        <option value="lucky">lucky</option>
+        <option value="golu">golu</option>
+        <option value="hariom">hariom</option>
+        <option value="lokesh">lokesh</option>
+    </select> 
+    <button onclick="function_name()">Click</button> 
+    My name is = <input type="text" id="show">
+    <script type="text/javascript">
+        function function_name() {
+            var a = document.getElementById("name").value;
+                    document.getElementById("show").value=a;
+
+        }
+    </script>
+</body>
+</html>

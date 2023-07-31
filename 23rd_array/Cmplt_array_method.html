@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>array</title>
+</head>
+<body>
+
+	<!-- 
+        Array : Array is a variable which stored the mutlipe data.. 
+        Array is a collection of multiple records of diferent datatypes.. 
+        Array is ordered, changable and allow duplicate values.. 
+        Array syntax:  [ value,.......]
+     -->
+
+    <script type="text/javascript">
+    	// var cars = ["BMW","Bolero","Alto","nano"]
+
+    	// console.log(cars)
+    	// 0:BMD,1:Bolero,2:Alto,3:nano length-4
+
+    	// console.log(cars[1]);
+    	// Bolero
+
+    	// cars[0]="Fortuner";
+    	// console.log(cars)
+    	// 0:Fortuner,1:Bolero,2:Alto,3:nano length-4
+
+    	// console.log(cars.length);
+    	// 4
+
+    	// console.log(cars.push("Kiger","Thar"));
+    	// 0:Fortuner,1:Bolero,2:Alto,3:nano,4:Kiger,5:Thar length-6
+
+    	// For Of Loop(value/item)
+    	// for(let x of cars){
+    		// console.log(x);
+    		// Fortuner,Bolero,Alto,nano,Kiger,Thar
+    	// }
+
+    	// For In Loop(index)
+    	// for(let x in cars){
+    		// console.log(cars);
+    		//0,1,2,3,4,5
+    	// }
+
+    	// ForEach Loop(item or index)
+    	// cars.forEach(function (item,index) {
+    		// console.log(item,index);
+    		// Fortuner-0 Bolero-1 Alto-2 nano-3 Kiger-4 Thar-5
+    	// })
+
+
+
+    	// Array Methods
+
+    	var bike = [1,2,"Bajaj","Pulser"]
+
+
+    	//1. toString() Converting Arrays to Strings.
+    	// console.log(bike.toString());
+    	// Output:-1,2,Bajaj,Pulser
+
+
+    	// 2. join() method also joins all array elements into a string.
+    	// console.log(bike.join(" * "));
+    	// Output:-1 * 2 * Bajaj * Pulser
+    	// console.log(bike.join(" || "));
+    	// Output:-1 || 2 || Bajaj || Pulser
+
+
+    	// pop() method removes the last element from an array.
+    	// console.log(bike.pop());
+    	// Output:-1,2,Bajaj
+
+
+    	// push() method adds a new element to an array (at the end).
+    	// console.log(bike.push("Ronin"));
+    	// Output:-1,2,Bajaj,Pulser,Ronin
+
+
+        // shift() method removes the first array element and "shifts" all other elements to a lower index.
+        console.log(bike.shift(4));
+        // Output:-2,Bajaj,Pulser
+
+
+        // unshift() method adds new elements to the beginning of an array.
+        // console.log(bike.unshift("KTM"))
+        // Output:-KTM,1,2,Bajaj,Pulser
+
+
+        // splice() method can be used to add new items to an array.
+        // console.log(bike.splice(2,0,"Splender"));
+        // Output:-1,2,Splender,Bajaj,Pulser
+
+
+        // The slice() method slices out a piece of an array into a new array.
+        // console.log(bike.slice(2));
+        // Output:-Bajaj,Pulser,Ronin
+
+        // The reverse() method reverse a array.
+        // console.log(bike.reverse());
+        // Output:-'Pulser', 'Bajaj', 2, 1
+
+
+
+        // concat() method creates a new array by merging (concatenating) existing arrays.
+        // let boys = ["Ravi","Rahul","Pankaj"]
+        // let girls = ["Ravina","nidhi","pooja"]
+        // let children =boys.concat(girls);
+        // console.log(children);
+        // Output:-'Ravi', 'Rahul', 'Pankaj', 'Ravina', 'nidhi', 'pooja'
+
+
+    	// let a = [1,2,3,4,5,6,7,8,9];
+    	// let b = [];
+    	// console.log(a);
+        // for(let x = a.length-1; x>=0; x--)
+        // {
+        // 	b.push(a[x]);
+        // }
+        // console.log(`Reversed Array : ${b}`)
+        // Reversed Array : 9,8,7,6,5,4,3,2,1
+
+
+        var a = "chou";
+        console.log(a.strreverse())
+        
+
+        
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+Api : Application programming interface : 
+
+Web Services : 
+
+It communication between two nodes :  
+
+Front (UI) ---------------------------- Server(python, nodejs, php ,java)
+
+fetch(url) : fetch api 
+=> fetch always return a promises(fullfiled, pending, reject) 
+
+=> fetch is used for to load the data from api and show into the browser
+
+promises handle :  
+
+succes : then()
+failed :  catch() 
+
+fetch :  
+1. data produce 
+2. data consume 
+
+fetch(url).then().then().catch()
+first then()  :  response.json() 
+second then() : data(array of an objects )
+[
+    {
+
+    },
+    {
+        
+    }
+] 
+
+--------------------------------------------------------
+
+free api provide :  
+jsonpalceholder : 
+https://jsonplaceholder.typicode.com/
+
+url : 
+https://jsonplaceholder.typicode.com/posts

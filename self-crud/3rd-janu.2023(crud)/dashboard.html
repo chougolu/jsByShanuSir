@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="dashboard.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addStudent.html">AddStudent <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="showData">
+            </tbody>
+        </table>
+        <!-- Modal -->
+        <div class="modal fade" id="editData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Student Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="stndtupdatefrm" onsubmit="updateStudent(event)">
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="fullname" name="stdntName">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" name="stdntEmail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Contact</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="contact" name="stdntContact">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" id="password" name="stdntPswd">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous"></script>
+    <script>
+        function showStdnt() {
+            var localdata = localStorage.getItem("stdntData");
+            if (localdata != null) {
+                stdntarr = JSON.parse(localdata);
+            } else {
+                stdntarr = [];
+            }
+            var str = "";
+            // console.log(stdntarr);
+            stdntarr.forEach((item, index) => {
+                str += `
+            <tr>
+                <td>${item.stdntName}</td>
+                <td>${item.stdntEmail}</td>
+                <td>${item.stdntContact}</td>
+                <td>${item.stdntPswd}</td>
+                <td><button onclick="deleteData(${index})" class="btn btn-danger">Delete</button>
+                <button data-toggle="modal" data-target="#editData" onclick="editData(${index})" class="btn btn-success">Edit</button></td>
+            </tr>
+            `
+            });
+            document.getElementById("showData").innerHTML = str;
+        }
+        showStdnt();
+
+        function deleteData(deleteId) {
+            // console.log(deleteId);
+            var localdeletedata = localStorage.getItem("stdntData");
+            if (localdeletedata != null) {
+                stdntdltarr = JSON.parse(localdeletedata);
+            } else {
+                stdntdltarr = [];
+            }
+            var newstdntdltarr = stdntdltarr.filter((item, index) => {
+                return index != deleteId;
+            })
+            console.log(newstdntdltarr);
+            localStorage.setItem("stdntData", JSON.stringify(newstdntdltarr));
+            window.location = "dashboard.html";
+        }
+        var edid = [];
+        function editData(editId) {
+            edid=editId
+            //    console.log(editId);
+            var editlocal = localStorage.getItem("stdntData");
+            if (editlocal != null) {
+                stdntedttarr = JSON.parse(editlocal);
+            } else {
+                stdntedttarr = [];
+            }
+            // console.log(stdntedttarr);
+            var newstdntedttarr = stdntedttarr.filter((item, index) => {
+                return index == editId;
+            });
+            // console.log(newstdntedttarr);
+            document.getElementById("fullname").value = newstdntedttarr[0].stdntName;
+            document.getElementById("email").value = newstdntedttarr[0].stdntEmail;
+            document.getElementById("contact").value = newstdntedttarr[0].stdntContact;
+            document.getElementById("password").value = newstdntedttarr[0].stdntPswd;
+        }
+        
+        function updateStudent(event) {
+            event.preventDefault();
+            // console.log("update")
+            var stdntNm = stndtupdatefrm.stdntName.value;
+            var stdntEml = stndtupdatefrm.stdntEmail.value;
+            var stdntCnt = stndtupdatefrm.stdntContact.value;
+            var stdntPsd = stndtupdatefrm.stdntPswd.value;
+            // console.log(stdntNm,stdntEml,stdntCnt,stdntPsd);
+            var updtlocal = localStorage.getItem("stdntData");
+            if (updtlocal != null) {
+                stdntupdttarr = JSON.parse(updtlocal);
+            } else {
+                stdntupdttarr = [];
+            }
+            // console.log(stdntupdttarr);
+            stdntupdttarr[edid].stdntName = stdntNm;
+            stdntupdttarr[edid].stdntEmail = stdntEml;
+            stdntupdttarr[edid].stdntContact = stdntCnt;
+            stdntupdttarr[edid].stdntPswd = stdntPsd;
+            // console.log(stdntupdttarr);
+            localStorage.setItem("stdntData",JSON.stringify(stdntupdttarr));
+            window.location = "dashboard.html";
+        }
+</script>
+</footer>
+
+</html>

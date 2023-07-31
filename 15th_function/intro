@@ -1,0 +1,13 @@
+
+/*
+function :  is a self content block of code which perform a particular task. 
+
+=> Predefined function(library function) : it provided by js 
+
+=> User Defned function: its defined by user. 
+    => function declaration 
+        => Default function  : A function take no parameter 
+        => Parameterised Fucntion : A function take at least one parameter
+    => calling of fuunction 
+
+*/

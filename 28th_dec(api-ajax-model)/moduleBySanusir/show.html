@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Signup</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Show Users</h2>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Cno</th>
+          <th>Password</th>
+          <th>Age</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+
+      </tbody>
+    </table>
+  </div>
+  <script>
+
+       function getData() {
+
+        let localData = localStorage.getItem("module1");
+        //console.log(typeof(localData))
+        // Object(string) ------------   JSON.parse(stringname)
+        let userData = JSON.parse(localData);
+        //console.log(userData.length);
+        let str = '';
+        userData.forEach((items, index) => {
+          str += `<tr><td>${items.id}</td><td>${items.name}</td><td>${items.email}</td><td>${items.cno}</td><td>${items.password}</td><td>${items.age}</td>
+            <td>${ (items.status == 0) ? 'Inactive' : 'Active'  }</td><td> <button onclick="changeStatus(${index}, 'active')"">Active</button> <button onclick="changeStatus(${index}, 'inactive')">Inactive</button> </td> </td>
+            </tr>`
+        });
+        document.getElementById("data").innerHTML = str;
+      }
+      getData();
+
+      function changeStatus(userIndex, userStatus) {
+        // console.log("Tesitng")
+        let localNewData = localStorage.getItem("module1");
+        if(localNewData != null){
+            userData = JSON.parse(localNewData);
+        }
+        else{
+            userData = [];
+        }
+        if(userStatus == "active")
+        {
+            userData[userIndex].status =  1
+        }
+        else{
+            userData[userIndex].status =  0
+        }
+        localStorage.setItem("module1", JSON.stringify(userData));
+        getData();        
+
+      }
+  </script>
+</body>
+
+</html>

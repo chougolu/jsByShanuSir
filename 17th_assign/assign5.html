@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Local Address : <br>
+    <textarea name="" id="laddress" ></textarea>  <br>
+    <input type="checkbox" onclick="lpaddress()"> Same as local addresss <br>
+    Parmanent Address 2: 
+    <br>
+    <textarea name="" id="paddress" ></textarea> 
+
+    <script type="text/javascript">
+        function lpaddress() {
+            var local = document.getElementById('laddress').value;
+                        document.getElementById('paddress').value=local;
+
+        }
+    </script> 
+
+
+</body>
+</html>

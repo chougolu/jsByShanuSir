@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Singing : <input type="checkbox" id="nm" value="singing" class="nm">
+    <!-- Dancing : <input type="checkbox" id="eid" value="dancing" class="nm"> -->
+    <button onclick="btnClick()">Click</button>
+    <!-- 
+        query selector : collections
+        query selector method  is access by docuemnt(DOM)
+        getElementsByClassName : Provide HtmlCollection 
+     -->
+     <script>
+        function btnClick(){
+            // document.querySelectorAll() : it provide NodeList collection
+            //let element =  document.querySelectorAll(".nm");  
+            let element = document.getElementsByClassName("nm");
+            console.log(element[0]);
+            //console.log(element[1]);
+            
+        }
+    </script>
+
+     
+</body>
+</html>

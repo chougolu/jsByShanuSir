@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        wap to get the data from first input and assign into the second input field..  
+        But first input data will be remove after click a button 
+     -->
+    <!-- <label>Name :</label> <input type="text" id="name" placeholder="name" pattern="[A-Za-z]{6}" title="Six letter country code" name="ressss"> <button onclick="user()">Click</button>
+    <input type="text" id="show" readonly>
+    <script type="text/javascript">
+        function user(){
+            var name = document.getElementById('name').value;
+            document.getElementById('show').value=name;
+
+
+        }
+        
+    </script> -->
+
+    <script type="text/javascript">
+        
+        // Assignment 1st
+        var arr = [1,2,3,4,5,6,7,8,9,10,11];
+        var even = [];
+        var odd = [];
+        for(x of arr)  (x%2==0) ? even.push(x) : odd.push(x);
+        console.log(even.length); //5
+        console.log(odd.length); //6
+
+        //Assignment 2nd
+        var a = ["adarsh","sonali","amit","priya","akshay"];
+        var newA = a.filter((item,index)=>{
+            return item.startsWith("a");
+        });
+        console.log(newA); //['adarsh', 'amit', 'akshay']
+
+    </script>
+</body>
+</html>

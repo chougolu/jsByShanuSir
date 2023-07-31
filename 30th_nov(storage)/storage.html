@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <!-- 
+        localStorgae  : Object which stored the data with key and value paired in the browser
+         =>  The localStorage object stores data with no expiration date.
+
+        => The data is not deleted when the browser is closed, and are available for future sessions.
+
+        sessionStorage : 
+
+     -->
+
+     Name: <input type="text" name="haha" id="name">
+     <button onclick="setData()">Set</button>
+     <button onclick="getData()">Get</button>
+     <button onclick="deleteData()">Delete</button>
+    
+    <script>
+
+        // // Set data in local storage.
+        // function setData() {
+        //     var inputData = document.getElementById("name").value
+        //     var setData = localStorage.setItem("nm",inputData);
+
+        // }
+
+        // // Get data in console from local storage.
+        // function getData() {
+        //     var getdata = localStorage.getItem("nm");
+        //     console.log(getdata);
+        // }
+        
+        // // Delete data from local storage.
+        // function deleteData() {
+        //     localStorage.removeItem("nm");
+        // }
+
+        // Set data in session storage.
+        function setData() {
+            var inputData = document.getElementById("name").value
+            var setData = sessionStorage.setItem("nm",inputData);
+
+        }
+
+        // Get data in console from session storage.
+        function getData() {
+            var getdata = sessionStorage.getItem("nm");
+            console.log(getdata);
+        }
+        
+        // Delete data from session storage.
+        function deleteData() {
+            sessionStorage.removeItem("nm");
+        }
+       
+    </script>
+</body>
+</html>

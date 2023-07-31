@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+
+    <script>
+        var myPromice = new Promise((resolve, reject) => {
+            age = 24;
+            if (age >= 20) {
+                resolve();
+            } else {
+                reject();
+            }
+        });
+        console.log(myPromice);
+        myPromice.then(() => {
+            console.log("success");
+        }).catch(() => {
+            console.log("error");
+        });
+        console.log("hello google");
+    </script>
+
+</body>
+
+</html>

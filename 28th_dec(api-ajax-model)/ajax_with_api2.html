@@ -1,0 +1,55 @@
+<!-- 
+    Ajax : Asynchronous Javascript and XML 
+
+    XML :Extended Markup language (Data Transfer)
+    
+    Client -------------  Ajax ------------- Server 
+
+   Request :  XMl + Http 
+    Response : XMl + Http 
+    XMLHttpRequest(Ajax)
+    let obj = new XMLHttpRequest() 
+    5 Property 
+    3 (Response Handle)
+    2 (Request Send) 
+
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <!-- https://jsonplaceholder.typicode.com/posts/1 -->
+    Id: <input type="text" id="userid">
+    <button onclick="fetchData()">CLick</button>
+
+    <script>
+        function fetchData(){
+            let uid = document.getElementById("userid").value;
+        
+            let obj = new XMLHttpRequest(); 
+             // request end 
+            // ajax response handle  
+            obj.onreadystatechange = function(){
+                // data send from server  
+                if(obj.readyState == 4){
+                let data = obj.responseText;
+                console.log(data);
+                //let x = JSON.parse(data);
+                //console.log(x);
+            }
+           
+        }
+        obj.open("GET", `https://jsonplaceholder.typicode.com/posts/${uid}`, true);
+            obj.send();
+    }
+    </script>
+ </body>
+ </html>
+

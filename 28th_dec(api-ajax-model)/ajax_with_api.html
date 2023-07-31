@@ -1,0 +1,67 @@
+<!-- 
+    Ajax : Asynchronous Javascript and XML 
+
+    XML :Extended Markup language (Data Transfer)
+    
+    Client -------------  Ajax ------------- Server 
+
+   Request :  XMl + Http 
+    Response : XMl + Http 
+    XMLHttpRequest(Ajax)
+    let obj = new XMLHttpRequest() 
+    5 Property 
+    3 (Response Handle)
+    2 (Request Send) 
+
+
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <button onclick="fetchData()">CLick</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody id="result">
+           
+        </tbody>
+    </table>
+
+    <script>
+        function fetchData(){
+        
+            let obj = new XMLHttpRequest(); 
+             // request end 
+            // ajax response handle  
+            obj.onreadystatechange = function(){
+                // data send from server  
+                if(obj.readyState == 4){
+                let data = obj.responseText;
+                //console.log(typeof(data));
+                let x = JSON.parse(data);
+                //console.log(x);
+                let str = '';
+                x.forEach((items, index)=>{
+                    str += `<tr><td>${items.userId}</td><td>${items.title}</td></tr>`
+                })
+                document.getElementById("result").innerHTML = str;
+                }
+            }
+            obj.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+            obj.send();
+        }
+    </script>
+ </body>
+ </html>
+

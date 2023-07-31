@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Name : <input type="text" id="nm">
+    <!-- Email : <input type="text" id="eid"> -->
+    <button onclick="btnClick()">Click</button>
+    <!-- 
+        document.getElementById("nm").value
+        frm.fieldname.value
+
+        query selector : collections
+        query selector method  is access by docuemnt(DOM)
+     -->
+     <script>
+        function btnClick(){
+            let element =  document.querySelector("input").value;  
+            console.log(element);
+        }
+    </script>
+
+     
+</body>
+</html>

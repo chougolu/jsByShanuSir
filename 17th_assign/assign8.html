@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table border="1">
+    <tr>
+        <td>Employee Name</td>
+        <td>Monthly Salary</td>
+        <td>Annual Salary</td>
+    </tr>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="text" id="msalary"></td>
+        <td><input type="text" id="asalary" onclick="function_name()"></td>
+    </tr>
+    <tr>
+        <td colspan="3">
+        Total With GST : <input type="text" id="tsalary" >
+        </td>
+    </tr>
+   </table>
+
+   <script type="text/javascript">
+       function function_name() {
+           var ms = document.getElementById("msalary").value;
+           var as = document.getElementById("asalary").value=ms*12;
+           document.getElementById("tsalary").value=parseInt(as)-parseInt(as)*18/100;
+       }
+   </script>
+
+</body>
+</html>

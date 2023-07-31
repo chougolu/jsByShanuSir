@@ -1,0 +1,12 @@
+<script>
+    /*
+        sum of all duplicate values
+    */
+    let arr = [10,20,10,30, 20]; // 10, 10 , 20 , 20
+    let newArr = arr.filter((items, index)=>{
+        return arr.indexOf(items) !== index;
+    });
+    console.log(eval(newArr));
+ 
+
+</script>

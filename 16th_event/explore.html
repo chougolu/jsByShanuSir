@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>events</title>
+</head>
+<body>
+	<input type="number" name="input1" id="in1st">
+	<button onclick="funRun1()">+</button>
+	<button onclick="funRun2()">-</button>
+	<button onclick="funRun3()">x</button>
+	<button onclick="funRun4()">/</button>
+	<input type="number" name="input2" id="in2nd">
+	=
+	<input type="number" name="input3"  id="show" readonly >
+</body>
+
+<footer>
+	<script type="text/javascript">
+		function funRun1() {
+			var num1 =document.getElementById('in1st').value;
+			var num2 =document.getElementById('in2nd').value;
+			var cal =parseInt(num1)+parseInt(num2);
+		    document.getElementById("show").innerHTML = cal;
+		}
+		function funRun2() {
+			var num1 =document.getElementById('in1st').value;
+			var num2 =document.getElementById('in2nd').value;
+			var cal =parseInt(num1)-parseInt(num2);
+		    document.write(cal);
+		}
+		function funRun3() {
+			var num1 =document.getElementById('in1st').value;
+			var num2 =document.getElementById('in2nd').value;
+			var cal =parseInt(num1)*parseInt(num2);
+		    document.write(cal);
+		}
+		function funRun4() {
+			var num1 =document.getElementById('in1st').value;
+			var num2 =document.getElementById('in2nd').value;
+			var cal =parseInt(num1)/parseInt(num2);
+		    document.write(cal);
+		}
+	</script>
+</footer>
+</html>
